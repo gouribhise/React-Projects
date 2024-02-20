@@ -10,38 +10,38 @@ const Home = () => {
           <div className="row py-2">
             <button
               className="col mx-2 rounded-pill"
-              onClick={() => setCategory("Business")}
+              onClick={() => setCategory("business")}
             >
               Business
             </button>
             <button
               className="col mx-1 rounded-pill"
-              onClick={() => setCategory("Entertainment")}
+              onClick={() => setCategory("entertainment")}
             >
               Entertainment
             </button>
             <button
               className="col mx-1 rounded-pill"
-              onClick={() => setCategory("Health")}
+              onClick={() => setCategory("health")}
             >
               Health
             </button>
             <button
               className="col mx-1 rounded-pill"
-              onClick={() => setCategory("Science")}
+              onClick={() => setCategory("science")}
             >
               Science
             </button>
 
             <button
               className="col mx-1 rounded-pill"
-              onClick={() => setCategory("Sports")}
+              onClick={() => setCategory("sports")}
             >
               Sports
             </button>
             <button
               className="col mx-1 rounded-pill"
-              onClick={() => setCategory("Techonology")}
+              onClick={() => setCategory("techonology")}
             >
               Technology
             </button>
