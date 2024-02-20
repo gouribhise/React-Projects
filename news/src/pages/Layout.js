@@ -30,11 +30,11 @@ const Layout = () => {
               </li>
             </ul>
           </div>
-          <form className="d-flex">
+          {/* <form className="d-flex">
             <button className="btn btn-primary" type="button">
               Search
             </button>
-          </form>
+          </form> */}
         </div>
       </nav>
 
