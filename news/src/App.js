@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import NoPage from "./pages/NoPage";
-
+import Article from "./pages/Article";
 import Layout from "./pages/Layout";
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="search" element={<Search />} />
+            <Route path="article" element={<Article />} />
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

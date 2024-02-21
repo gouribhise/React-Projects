@@ -6,6 +6,7 @@ const url = `https://newsapi.org/v2/top-headlines?`;
 export const NewsProvider = ({ children }) => {
   const [category, setCategory] = useState(null);
   const [country, setCountry] = useState(null);
+  const [articles, setArticles] = useState([]);
   console.log(`${API_KEY}`);
 
   const getData = async () => {
@@ -13,6 +14,7 @@ export const NewsProvider = ({ children }) => {
       `${url}country=${country}&category=${category}&apiKey=${API_KEY}`
     );
     const data = await response.json();
+    setArticles(data.articles);
     console.log(data.articles);
   };
   useEffect(() => {
@@ -20,7 +22,7 @@ export const NewsProvider = ({ children }) => {
   }, [category, country]);
 
   return (
-    <NewsContext.Provider value={{ setCategory, setCountry, getData }}>
+    <NewsContext.Provider value={{ setCategory, setCountry, articles }}>
       {children}
     </NewsContext.Provider>
   );

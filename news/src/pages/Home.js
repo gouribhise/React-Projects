@@ -1,8 +1,13 @@
 import React, { useContext } from "react";
 import NewsContext from "../context/NewsContext";
+import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
-  const { setCategory, setCountry } = useContext(NewsContext);
+  const { setCategory, setCountry, articles } = useContext(NewsContext);
+  const navigate = useNavigate();
 
+  const goToArticle = (item) => {
+    navigate("article", { state: { article: item } });
+  };
   return (
     <div className="container-fluid">
       <div className="row">
@@ -168,6 +173,27 @@ const Home = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="row">
+        {articles.map((item) => {
+          return (
+            <div className="col-lg-6">
+              <div>
+                <a
+                  onClick={() => {
+                    goToArticle(item);
+                  }}
+                >
+                  {item.title}
+                </a>
+              </div>
+
+              {item.urlToImage ? (
+                <img src={item.urlToImage} className="home-img" />
+              ) : null}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
