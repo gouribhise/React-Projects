@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { NewsProvider } from "./context/NewsContext";
+import { SearchProvider } from "./context/SearchContext";
 // const dotenv = require("dotenv");
 // dotenv.config();
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <NewsProvider>
-      <App />
+      <SearchProvider>
+        <App />
+      </SearchProvider>
     </NewsProvider>
   </React.StrictMode>
 );
