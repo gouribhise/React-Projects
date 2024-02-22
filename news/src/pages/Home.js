@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import NewsContext from "../context/NewsContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+const imgn = require("./No_Image_Available.jpg");
 const Home = () => {
   const { setCategory, setCountry, articles } = useContext(NewsContext);
+
   const navigate = useNavigate();
 
   const goToArticle = (item) => {
@@ -178,11 +181,12 @@ const Home = () => {
         {articles.map((item) => {
           return (
             <div className="col-lg-6">
-              <div>
+              <div className="py-2">
                 <a
                   onClick={() => {
                     goToArticle(item);
                   }}
+                  className="title"
                 >
                   {item.title}
                 </a>
@@ -190,7 +194,9 @@ const Home = () => {
 
               {item.urlToImage ? (
                 <img src={item.urlToImage} className="home-img" />
-              ) : null}
+              ) : (
+                <img src={imgn} className="home-img" />
+              )}
             </div>
           );
         })}

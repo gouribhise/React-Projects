@@ -4,13 +4,19 @@
 * {
   margin: 0;
   padding: 0;
+  font-size: 1vw;
+}
+.title {
+  color: blue;
+  cursor: pointer;
 }
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 .home-img {
-  width: 100%;
+  width: 80%;
+  height: 80%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
