@@ -5,8 +5,8 @@ const API_KEY = process.env.REACT_APP_KEY;
 const url = `https://newsapi.org/v2/top-headlines?`;
 
 export const NewsProvider = ({ children }) => {
-  const [category, setCategory] = useState(null);
-  const [country, setCountry] = useState(null);
+  const [category, setCategory] = useState("business");
+  const [country, setCountry] = useState("in");
 
   const [articles, setArticles] = useState([]);
   console.log(`${API_KEY}`);
@@ -24,7 +24,9 @@ export const NewsProvider = ({ children }) => {
   }, [category, country]);
 
   return (
-    <NewsContext.Provider value={{ setCategory, setCountry, articles }}>
+    <NewsContext.Provider
+      value={{ setCategory, setCountry, articles, country }}
+    >
       {children}
     </NewsContext.Provider>
   );

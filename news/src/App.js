@@ -15,6 +15,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="search" element={<Search />} />
             <Route path="article" element={<Article />} />
+            <Route path="/search/article" element={<Article />} />
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

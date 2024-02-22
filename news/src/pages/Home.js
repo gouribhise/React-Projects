@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import NewsContext from "../context/NewsContext";
 import { useNavigate } from "react-router-dom";
 
 const imgn = require("./No_Image_Available.jpg");
 const Home = () => {
-  const { setCategory, setCountry, articles } = useContext(NewsContext);
+  const [count, setCount] = useState("");
+  const { setCategory, country, setCountry, articles } =
+    useContext(NewsContext);
 
   const navigate = useNavigate();
 
@@ -14,7 +16,7 @@ const Home = () => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-lg-8">
+        <div className="col-lg-9">
           <div className="row py-2">
             <button
               className="col mx-2 rounded-pill"
@@ -59,17 +61,20 @@ const Home = () => {
           <div class="dropdown py-2">
             <button
               type="button"
-              class="btn btn-secondary dropdown-toggle rounded-pill"
+              className="btn  btn-outline-secondary dropdown-toggle rounded-pill country"
               data-bs-toggle="dropdown"
             >
-              Select Country
+              {count ? count : "Select Country"}
             </button>
             <ul class="dropdown-menu">
               <li>
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("au")}
+                  onClick={() => {
+                    setCountry("au");
+                    setCount("Australia");
+                  }}
                 >
                   Australia
                 </a>
@@ -78,7 +83,10 @@ const Home = () => {
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("cz")}
+                  onClick={() => {
+                    setCountry("cz");
+                    setCount("Czech Republic");
+                  }}
                 >
                   Czech Republic
                 </a>
@@ -87,7 +95,10 @@ const Home = () => {
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("fr")}
+                  onClick={() => {
+                    setCountry("fr");
+                    setCount("France");
+                  }}
                 >
                   France
                 </a>
@@ -96,7 +107,10 @@ const Home = () => {
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("in")}
+                  onClick={() => {
+                    setCountry("in");
+                    setCount("India");
+                  }}
                 >
                   India
                 </a>
@@ -105,7 +119,10 @@ const Home = () => {
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("jp")}
+                  onClick={() => {
+                    setCountry("jp");
+                    setCount("Japan");
+                  }}
                 >
                   Japan
                 </a>
@@ -114,7 +131,10 @@ const Home = () => {
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("nl")}
+                  onClick={() => {
+                    setCountry("nl");
+                    setCount("Netherlands");
+                  }}
                 >
                   Netherlands
                 </a>
@@ -123,7 +143,10 @@ const Home = () => {
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("pl")}
+                  onClick={() => {
+                    setCountry("pl");
+                    setCount("Portugal");
+                  }}
                 >
                   Portugal
                 </a>
@@ -132,7 +155,10 @@ const Home = () => {
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("ru")}
+                  onClick={() => {
+                    setCountry("ru");
+                    setCount("Russia");
+                  }}
                 >
                   Russia
                 </a>
@@ -141,7 +167,10 @@ const Home = () => {
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("sa")}
+                  onClick={() => {
+                    setCountry("sa");
+                    setCount("Saudi Arabia");
+                  }}
                 >
                   Saudi Arabia
                 </a>
@@ -150,7 +179,10 @@ const Home = () => {
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("sk")}
+                  onClick={() => {
+                    setCountry("sk");
+                    setCount("South Africa");
+                  }}
                 >
                   South Africa
                 </a>
@@ -159,7 +191,10 @@ const Home = () => {
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("th")}
+                  onClick={() => {
+                    setCountry("th");
+                    setCount("Thailand");
+                  }}
                 >
                   Thailand
                 </a>
@@ -168,7 +203,10 @@ const Home = () => {
                 <a
                   class="dropdown-item"
                   href="#"
-                  onClick={() => setCountry("ua")}
+                  onClick={() => {
+                    setCountry("ua");
+                    setCount("UAE");
+                  }}
                 >
                   UAE
                 </a>
@@ -190,13 +228,14 @@ const Home = () => {
                 >
                   {item.title}
                 </a>
+                <br />
+                {item.urlToImage ? (
+                  <img src={item.urlToImage} className="home-img" />
+                ) : (
+                  <img src={imgn} className="home-img" />
+                )}
+                <br />
               </div>
-
-              {item.urlToImage ? (
-                <img src={item.urlToImage} className="home-img" />
-              ) : (
-                <img src={imgn} className="home-img" />
-              )}
             </div>
           );
         })}

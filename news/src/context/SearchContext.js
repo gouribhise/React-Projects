@@ -7,11 +7,12 @@ const searchUrl = `https://newsapi.org/v2/everything?`;
 export const SearchProvider = ({ children }) => {
   const [search, setSearch] = useState(null);
   const [articles, setArticles] = useState([]);
+
   console.log(`${API_KEY}`);
   console.log("what is search", search);
   const getData = async () => {
     console.log("inside getdata");
-    const response = await fetch(`${searchUrl}q=${search} &apiKey=${API_KEY}`);
+    const response = await fetch(`${searchUrl}q=${search}&apiKey=${API_KEY}`);
     console.log(response);
     const data = await response.json();
 
