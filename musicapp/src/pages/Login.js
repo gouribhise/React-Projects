@@ -1,6 +1,11 @@
 import React from "react";
-
+import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate();
+
+  const navigateToDashboard = () => {
+    navigate("dashboard");
+  };
   const handleSubmit = () => {
     console.log("handlesubmit");
   };
@@ -17,12 +22,25 @@ const Login = () => {
       </div>
       <div className="row login py-5">
         <div className="col-lg-6 login-opt mx-auto">
+          Log in to Musica
+          <p>Continue with google</p>
+          <p>Continue with facebook</p>
+          <p>Continue with apple</p>
+          <p>Continue with phone number</p>
           <form action={handleSubmit}>
-            <label>
-              User name:
-              <input type="text" name="username" />
-            </label>
-            <input type="submit" value="Submit" />
+            <label>Email:</label>
+            <br />
+            <input type="text" name="username" />
+            <br />
+            <label>Password</label>
+            <br />
+            <input type="text" name="username" />
+            <br />
+            <input
+              type="submit"
+              value="Login"
+              onClick={() => navigateToDashboard()}
+            />
           </form>
         </div>
       </div>
