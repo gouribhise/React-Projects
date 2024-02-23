@@ -1,6 +1,9 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+const API_KEY = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const Dashboard = () => {
+  console.log("what is access:", accessToken);
+  const [songData, setSongData] = useState(null);
+
   return (
     <>
       <div className="row">
@@ -57,9 +60,7 @@ const Dashboard = () => {
               <p className="badge rounded-pill bg-primary options">Podcasts</p>
             </div>
           </div>
-          <div className="row">
-            <h5>Made for</h5>
-          </div>
+          <div className="row"></div>
         </div>
       </div>
       <div className="row player">player control</div>

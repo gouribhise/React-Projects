@@ -4,17 +4,21 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import NoPage from "./pages/NoPage";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { MusicProvider } from "./context/MusicContext";
+
 function App() {
   return (
     <div className="container-fluid">
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Login />} />
-          <Route path="dashboard" element={<Dashboard />} />
+      <MusicProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<Login />} />
+            <Route path="dashboard" element={<Dashboard />} />
 
-          <Route path="*" element={<NoPage />} />
-        </Routes>
-      </BrowserRouter>
+            <Route path="*" element={<NoPage />} />
+          </Routes>
+        </BrowserRouter>
+      </MusicProvider>
     </div>
   );
 }
