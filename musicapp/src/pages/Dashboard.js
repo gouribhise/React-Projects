@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import MusicContext from "../context/MusicContext";
 const API_KEY = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+
 const Dashboard = () => {
-  console.log("what is access:", accessToken);
   const [songData, setSongData] = useState(null);
 
   return (

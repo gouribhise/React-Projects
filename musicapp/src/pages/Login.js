@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import MusicContext from "../context/MusicContext";
 const Login = () => {
   const navigate = useNavigate();
+  const { getToken } = useContext(MusicContext);
 
   const navigateToDashboard = () => {
+    //  navigate("dashboard");
+    getToken();
     navigate("dashboard");
   };
   const handleSubmit = () => {
