@@ -33,6 +33,7 @@ export const MusicProvider = ({ children }) => {
   const AUTH_ENDPOINT = process.env.REACT_APP_SPOTIFY_AUTH_ENDPOINT;
   const RESPONSE_TYPE = process.env.REACT_APP_SPOTIFY_RESPONSE_TYPE;
   const [token, setToken] = useState("");
+  const [tracks, setTracks] = useState([]);
   const getData = async () => {
     const headers = {
       headers: {
@@ -63,9 +64,42 @@ export const MusicProvider = ({ children }) => {
   useEffect(() => {
     getData();
   }, []);
-  console.log("what is token:", token);
+
+  /** Search Artist and tracks */
+  const searchArtist = async (searchKey) => {
+    const { data } = await axios.get("https://api.spotify.com/v1/search", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      params: {
+        q: searchKey,
+        type: "artist",
+      },
+    });
+
+    var artistID = data.artists.items[0].id;
+
+    var artistTracks = await axios.get(
+      `https://api.spotify.com/v1/artists/${artistID}/top-tracks`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        params: {
+          limit: 10,
+          market: "US",
+        },
+      }
+    );
+
+    setTracks(artistTracks.data.tracks);
+  };
+  console.log("tracks", tracks);
   return (
-    <MusicContext.Provider value={{ token }}>{children}</MusicContext.Provider>
+    <MusicContext.Provider value={{ token, getData, searchArtist, tracks }}>
+      {children}
+    </MusicContext.Provider>
   );
 };
 

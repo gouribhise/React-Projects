@@ -1,9 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import MusicContext from "../context/MusicContext";
 import { Link } from "react-router-dom";
-const Dashboard = () => {
+const Search = () => {
+  const { searchArtist, tracks } = useContext(MusicContext);
   const [songData, setSongData] = useState(null);
-
+  const [term, setTerm] = useState("");
+  const [query, setQuery] = useState("");
+  const handleSubmit = () => {
+    console.log("handlesubmit");
+  };
   return (
     <>
       <div className="row">
@@ -11,12 +16,12 @@ const Dashboard = () => {
           <div id="menu">
             <ul>
               <li>
-                <i class="fa-solid fa-house"></i>Home
+                <Link to="/dashboard">
+                  <i class="fa-solid fa-house"></i>Home
+                </Link>
               </li>
               <li>
-                <Link to="/search">
-                  <i class="fa-solid fa-magnifying-glass"></i>Search
-                </Link>
+                <i class="fa-solid fa-magnifying-glass"></i>Search
               </li>
             </ul>
           </div>
@@ -36,13 +41,25 @@ const Dashboard = () => {
         </div>
         <div className="col-lg-9">
           <div className="row">
-            <div className="col-lg-3">
-              <i class="fa-solid fa-chevron-left"></i>
-              <i class="fa-solid fa-chevron-right"></i>
-            </div>
             <div className="col-lg-6">
+              <div className="flex">
+                <input
+                  type="text"
+                  className="input mx-2"
+                  placeholder="search"
+                  value={term}
+                  onChange={(e) => setTerm(e.target.value)}
+                />
+                <button
+                  className="btn btn-secondary rounded-pill"
+                  onClick={() => searchArtist(term)}
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+            <div className="col-lg-2">
               <div className="justify-content-end buttons">
-                <button>Explore premium</button>
                 <button>Install App</button>
                 <button>
                   <i class="fa-solid fa-bell"></i>
@@ -51,18 +68,10 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+
           <div className="row">
-            <div className="col">
-              <p className="badge rounded-pill bg-primary options">All</p>
-            </div>
-            <div className="col">
-              <p className="badge rounded-pill bg-primary options">Music</p>
-            </div>
-            <div className="col">
-              <p className="badge rounded-pill bg-primary options">Podcasts</p>
-            </div>
+            <h5>Browse all</h5>
           </div>
-          <div className="row"></div>
         </div>
       </div>
       <div className="row player">player control</div>
@@ -70,4 +79,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Search;
