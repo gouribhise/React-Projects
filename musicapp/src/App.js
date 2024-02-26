@@ -13,9 +13,9 @@ function App() {
       <MusicProvider>
         <BrowserRouter>
           <Routes>
-            <Route element={<Login />} />
-            <Route index path="dashboard" element={<Dashboard />} />
-            <Route path="/search" element={<Search />} />
+            <Route index element={<Login />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="search" element={<Search />} />
             <Route path="*" element={<NoPage />} />
           </Routes>
         </BrowserRouter>

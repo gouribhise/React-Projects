@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import MusicContext from "../context/MusicContext";
 import { Link } from "react-router-dom";
+import Player from "../components/Player";
 const Search = () => {
   const { searchArtist, tracks } = useContext(MusicContext);
   const [songData, setSongData] = useState(null);
+
   const [term, setTerm] = useState("");
   const [query, setQuery] = useState("");
+  console.log("tracks from album:", tracks);
   const handleSubmit = () => {
     console.log("handlesubmit");
   };
@@ -71,6 +74,16 @@ const Search = () => {
 
           <div className="row">
             <h5>Browse all</h5>
+            {tracks.slice(0, 5).map((track) => (
+              <div key={track.id} onClick={() => setSongData(track.uri)}>
+                <ul>
+                  <li> {track.name}</li>
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="row">
+            <Player trackUri={songData} />
           </div>
         </div>
       </div>
