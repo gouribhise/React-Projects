@@ -8,9 +8,9 @@ const WeatherContext = createContext();
 export const WeatherProvider = ({ children }) => {
   const [location, setLocation] = useState([]);
   const [currentData, setCurrentData] = useState([]);
-  const currentWeather = () => {
+  const currentWeather = (term) => {
     axios
-      .get(`${BASE_URL}key=${API_KEY}&q=London`)
+      .get(`${BASE_URL}key=${API_KEY}&q=${term}`)
       .then((data) => {
         setLocation(data.data.location);
         setCurrentData(data.data.current);
