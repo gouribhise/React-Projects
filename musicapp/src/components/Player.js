@@ -9,7 +9,7 @@ const Player = ({ trackUri }) => {
   }, [trackUri]);
   if (!token) return null;
   return (
-    <SpotifyPlayer
+    /* <SpotifyPlayer
       token={token}
       showSaveIcon
       callback={(state) => !state.isPlaying && setPlay(false)}
@@ -25,6 +25,10 @@ const Player = ({ trackUri }) => {
         trackNameColor: "#fff",
         height: "55px",
       }}
+    />*/
+    <SpotifyPlayer
+      token="BQCmKDxbYbCzvFGINWewYshIgH09fa9JQd2EO4-gxoSwbFXGwmxGdDm7wlVtvgVDi-ICDlXA4XWdQXowoKCav8ZtiKzSS-MJq2-vsMfZCQ2eWE0S8yM"
+      uris={["spotify:artist:6HQYnRM4OzToCYPpVBInuU"]}
     />
   );
 };
