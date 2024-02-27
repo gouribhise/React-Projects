@@ -1,23 +1,27 @@
+import React, { useState, useEffect, useContext } from "react";
+import WeatherContext from "./context/WeatherContext";
 import "./App.css";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-const BASE_URL = "http://api.weatherapi.com/v1/current.json?";
-const API_KEY = process.env.REACT_APP_WEATHER_API;
-
+import Current from "./components/Current";
+import Location from "./components/Location";
 function App() {
-  const getData = () => {
-    axios
-      .get(`${BASE_URL}key=${API_KEY}&q=London`)
-      .then((data) => console.log(data.data))
-      .catch((error) => console.log(error));
-  };
-  useEffect(() => {
-    getData();
-  }, []);
+  const { currentWeather, currentData, location } = useContext(WeatherContext);
 
   return (
     <div className="App">
-      <div>hello</div>
+      <div className="container-fluid">
+        <div className="row">
+          <h4>Weather App</h4>
+        </div>
+        <div className="row">
+          <div className="col-lg-4">
+            <button onClick={() => currentWeather()}>Current Weather</button>
+            <Location {...location} />
+          </div>
+          <div className="col-lg-7">
+            <Current {...currentData} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
