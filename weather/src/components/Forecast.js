@@ -1,11 +1,11 @@
 import React,{useState,useContext} from "react";
 import WeatherContext from "../context/WeatherContext";
-const Current=({isVisible})=>{
+const Forecast=({isForecast})=>{
     const { currentWeather, currentData, location } = useContext(WeatherContext);
     const [term, setTerm] = useState("");
     return(
         <div>
-            {isVisible?  <div class="form-group fg--search">
+           <div class="form-group fg--search">
               <input
                 type="text"
                 className="input-search mx-5"
@@ -17,18 +17,12 @@ const Current=({isVisible})=>{
                 className="btn btn-secondary btn-sm rounded-pill"
                 onClick={() => currentWeather(term)}
               >
-                Current
-              </button>&nbsp;
-              <button
-                className="btn btn-secondary btn-sm rounded-pill"
-                onClick={() => currentWeather(term)}
-              >
                 Forecast
               </button>
-            </div>:null}
+            </div>
         </div>
       
     )
 }
 
-export default Current
+export default Forecast
