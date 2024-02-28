@@ -1,15 +1,18 @@
-import React from "react";
+import React,{useContext} from "react";
+import WeatherContext from "../context/WeatherContext";
 
 const WeatherData = (props) => {
- 
+  const { currentWeather, currentData, location ,dispForeCast} = useContext(WeatherContext);
+
    return (
     <div className="container">
-      <div className="row">
+      {props?'yes':'no'}
+       <div className="row">
         
         <table>
           <tr>
-            <th>{props.condition.text}</th>
-            <td><img src={props.condition.icon}/></td>
+            <th>{props.condition?props.condition.text:null}</th>
+            <td><img src={props.condition?props.condition.icon:null}/></td>
           </tr>
           <tr>
             <th>Centigrade</th>
@@ -96,6 +99,7 @@ const WeatherData = (props) => {
           </tr> */}
         </table>
       </div>
+    
     </div>
   );
 };

@@ -1,28 +1,27 @@
 import React,{useState,useContext} from "react";
 import WeatherContext from "../context/WeatherContext";
-const Forecast=({isForecast})=>{
-    const { currentWeather, currentData, location } = useContext(WeatherContext);
+const Forecast=({forecastday})=>{
+  console.log('what is props:',forecastday)
+    const { currentWeather, currentData, location ,dispForeCast} = useContext(WeatherContext);
     const [term, setTerm] = useState("");
-    return(
-        <div>
-           <div class="form-group fg--search">
-              <input
-                type="text"
-                className="input-search mx-5"
-                placeholder="enter city"
-                value={term}
-                onChange={(e) => setTerm(e.target.value)}
-              />
-              <button
-                className="btn btn-secondary btn-sm rounded-pill"
-                onClick={() => currentWeather(term)}
-              >
-                Forecast
-              </button>
-            </div>
-        </div>
+   return<> {forecastday?
       
-    )
+    forecastday.map((item)=>{
+      return <>
+      {item.date}
+      <p>{item.day.maxtemp_c}</p>
+      </>
+    })
+      
+      :null
+    
+    }
+    </>
+ 
+ 
+        
+      
+  
 }
 
 export default Forecast

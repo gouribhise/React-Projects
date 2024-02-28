@@ -6,9 +6,8 @@ import Location from "./components/Location";
 import Current from "./components/Current";
 import Forecast from "./components/Forecast";
 function App() {
-  const { currentWeather, currentData, location } = useContext(WeatherContext);
-const[isVisible,setIsVisible]=useState(true)
-   return (
+  const { currentWeather, currentData, location,dispForeCast,fiveData } = useContext(WeatherContext);
+    return (
     <div className="App">
       <div className="container-fluid">
         <div className="row">
@@ -17,14 +16,16 @@ const[isVisible,setIsVisible]=useState(true)
         <div className="row">
        
           <div className="col-lg-4">
-            <Current isVisible={isVisible}/>
+            <Current/>
        
         
             <Location {...location} />
           
           </div>
           <div className="col-lg-5">
-            <WeatherData {...currentData} />
+           <WeatherData {...currentData}/>
+           <Forecast {...fiveData}/>         
+          
           </div>
         </div>
       </div>
