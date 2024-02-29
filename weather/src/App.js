@@ -3,7 +3,7 @@ import WeatherContext from "./context/WeatherContext";
 import "./App.css";
 import WeatherData from "./components/WeatherData";
 import Location from "./components/Location";
-import Current from "./components/Current";
+import Search from "./components/Search";
 import Forecast from "./components/Forecast";
 function App() {
   const { currentWeather, currentData, location,dispForeCast,fiveData } = useContext(WeatherContext);
@@ -15,19 +15,21 @@ function App() {
         </div>
         <div className="row">
        
-          <div className="col-lg-4">
-            <Current/>
-       
+             <Search/>
+       </div>
+       <div className="row">
+
         
             <Location {...location} />
+            </div>
+            <div>
           
-          </div>
-          <div className="col-lg-5">
-           <WeatherData {...currentData}/>
+            <WeatherData {...currentData}/>
+            </div>
+            <div>
            <Forecast {...fiveData}/>         
           
-          </div>
-        </div>
+         </div>
       </div>
     </div>
   );

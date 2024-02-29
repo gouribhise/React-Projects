@@ -1,6 +1,6 @@
 import React,{useState,useContext,useEffect} from "react";
 import WeatherContext from "../context/WeatherContext";
-const Current=({isVisible})=>{
+const Search=({isVisible})=>{
     const { currentWeather, currentData, location,weatherForecast } = useContext(WeatherContext);
     const [term, setTerm] = useState("pune");
     useEffect(()=>{
@@ -20,14 +20,9 @@ setTerm('pune')
                 className="btn btn-secondary btn-sm rounded-pill"
                 onClick={() => currentWeather(term)}
               >
-                Current
-              </button>&nbsp;
-              <button
-                className="btn btn-secondary btn-sm rounded-pill"
-                onClick={() => weatherForecast(term)}
-              >
-                Forecast
+                Search
               </button>
+             
             </div>
             
         </div>
@@ -35,4 +30,4 @@ setTerm('pune')
     )
 }
 
-export default Current
+export default Search

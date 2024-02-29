@@ -6,98 +6,77 @@ const WeatherData = (props) => {
 
    return (
     <div className="container">
-      {props?'yes':'no'}
-       <div className="row">
+        <div className="row">
         
-        <table>
-          <tr>
-            <th>{props.condition?props.condition.text:null}</th>
-            <td><img src={props.condition?props.condition.icon:null}/></td>
-          </tr>
-          <tr>
-            <th>Centigrade</th>
-            <td>{props.temp_c}</td>
-          </tr>
-          <tr>
-            <th>Farhenheit</th>
-            <td>{props.temp_f}</td>
-          </tr>
-              <tr>
-            <th>feelslike_c</th>
-            <td>{props.feelslike_c}</td>
-          </tr>
-          <tr>
-            <th>feelslike_f</th>
-            <td> {props.feelslike_f}</td>
-          </tr>
-          <tr>
-            <th>Wind</th>
-            <td>{props.wind_kph}</td>
-          </tr>
+    
+      <div className="col">
+      {props.condition?props.condition.text:null}
+            <img src={props.condition?props.condition.icon:null}/>
+      </div>
+        
+      <div className="col">
+      
+  <div>    Centigrade
+            {props.temp_c}</div>
+          
+          
+         <div>   Farhenheit
+            {props.temp_f}</div>
+          
+       <div>       
+            feelslike_c
+            {props.feelslike_c}</div>
+            <div>
+          
+          
+            feelslike_f
+             {props.feelslike_f}</div>
+          
+      </div>
+        
+      <div className="col">
+      
+            <div>Wind
+            {props.wind_kph}
+          </div>
 
-          <tr>
-            <th>Wind Degree</th>
-            <td> {props.wind_degree}</td>
-          </tr>
-          <tr>
-            <th>Wind Direction</th>
-            <td> {props.wind_dir}</td>
-          </tr>
-          <tr>
-            <th>uv</th>
-            <td> {props.uv}</td>
-          </tr>
-          <tr>
-            <th>Humidity</th>
-            <td> {props.humidity}</td>
-          </tr>
- 
-          <tr>
-            <th>cloud</th>
-            <td> {props.cloud}</td>
-          </tr>
-          <tr>
-            <th>Pressure in mb</th>
-            <td>{props.pressure_mb}</td>
-          </tr>
-         
-         
-          <tr>
-            <th>Pressure </th>
-            <td>{props.pressure_in}</td>
-          </tr>
-         
-         
-         
-          {/* <tr>
-            <th>Precip</th>
-            <td> {props.precip_mm}</td>
-          </tr>
-       
+          <div>
+            Wind Degree
+             {props.wind_degree}
+          </div>
+          <div>
+            <div>Wind Direction</div>
+            <div> {props.wind_dir}</div>
+          </div>
+      </div>
         
-      
-          <tr>
-            <th>vis_km</th>
-            <td> {props.vis_km}</td>
-          </tr>
-          <tr>
-            <th>vis-miles</th>
-            <td> {props.vis_miles}</td>
-          </tr>
-      
-          <tr>
-            <th>gust_mph</th>
-            <td> {props.gust_mph}</td>
-          </tr>
-          <tr>
-            <th>gust_kph</th>
-            <td> {props.gust_kph}</td>
-          </tr>
-          <tr>
-            <th>W</th>
-            <td> {props.W}</td>
-          </tr> */}
-        </table>
+      <div className="col">
+      <div>uv
+             {props.uv}
+          </div>
+          <div>
+            Humidity
+             {props.humidity}
+          </div>
+ 
+          <div>
+          cloud
+             {props.cloud}
+          </div>
+      </div>
+        
+      <div className="col">
+      <div>Pressure in mb
+            {props.pressure_mb}
+          </div>
+         
+         
+          <div>
+            Pressure 
+            {props.pressure_in}
+          </div>
+         
+      </div>
       </div>
     
     </div>
