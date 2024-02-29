@@ -26,7 +26,7 @@ function App() {
           
             <WeatherData {...currentData}/>
             </div>
-            <div>
+            <div className="row">
            <Forecast {...fiveData}/>         
           
          </div>

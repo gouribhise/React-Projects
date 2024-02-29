@@ -19,25 +19,25 @@ export const WeatherProvider = ({ children }) => {
         setDispForecast(false)
       })
       .catch((error) => console.log(error));
+
+
+      axios
+      .get(`${BASE_URL}forecast.json?key=${API_KEY}&q=${term}&days=5&aqi=no&alerts=no`)
+      .then((data) => {
+        setLocation(data.data.location);
+        setFiveData(data.data.forecast);
+        setDispForecast(true)
+      })
+      .catch((error) => console.log(error));
   };
   console.log("currentdata:", currentData);
   console.log("locationdata:", location);
 
-  const weatherForecast=(term)=>{
-    axios
-    .get(`${BASE_URL}forecast.json?key=${API_KEY}&q=${term}&days=5&aqi=no&alerts=no`)
-    .then((data) => {
-      setLocation(data.data.location);
-      setFiveData(data.data.forecast);
-      setDispForecast(true)
-    })
-    .catch((error) => console.log(error));
 
-  }
 
 console.log('dispforecast:',dispForecast) 
  return (
-    <WeatherContext.Provider value={{ currentWeather, currentData, location,weatherForecast,fiveData,dispForecast }}>
+    <WeatherContext.Provider value={{ currentWeather, currentData, location, fiveData,dispForecast }}>
       {children}
     </WeatherContext.Provider>
   );
