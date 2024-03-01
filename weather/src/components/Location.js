@@ -1,8 +1,10 @@
 import React from "react";
 
 const Location = ({ name, region, country, lat, lon, tz_id, localtime }) => {
+ 
+ 
   return (<>
-  <div className="row">
+  <div className="row py-3">
            
             <div className="col">
             {name} &nbsp;
@@ -10,8 +12,8 @@ const Location = ({ name, region, country, lat, lon, tz_id, localtime }) => {
             
             </div>
               
-        <div className="col">{localtime}</div>
-             <div className="col">  {lat} - {lon}</div>
+        <div className="col">Today: {localtime?localtime.slice(0,10):null}  Time: {localtime?localtime.slice(10,):null}</div>
+             <div className="col">  Lat: {lat}  Long: {lon}</div>
           
           
         

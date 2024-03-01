@@ -3,20 +3,67 @@ import React from 'react'
 const Report=({data})=>{
     return (
         <div className='col-lg-2'>
-            <h4>{data.date}</h4>
+            <h4>{data.date.slice(5,)}</h4>
             
-            <strong>{data.day.condition.text} <span><img src={data.day.condition.icon}/></span></strong> 
-            <p>UV{data.day.uv}</p>
-           <p> maxtemp_c{data.day.maxtemp_c}  maxtemp_f{data.day.maxtemp_f}</p>
-           <p>mintemp_c{data.day.mintemp_c}  mintemp_f{data.day.mintemp_f}</p>
-           <p>humidity{data.day.avghumidity}</p>
-           Rain? {data.day.daily_will_it_rain} 
-       <p> Snow?{data.day.daily_will_it_snow}</p>
+         <table>
+            <tr>
+                <th>{data.day.condition.text}</th>
+                <td><img src={data.day.condition.icon}/></td>
+            </tr>
+            <tr>
+                <th>UV</th>
+                <td>{data.day.uv}</td>
+            </tr>
+            <tr>
+                <th> maxtemp_c </th>
+                <td>{data.day.maxtemp_c}</td>
+            </tr>
+            <tr>
+                <th> maxtemp_f</th>
+                <td>{data.day.maxtemp_f}</td>
+            </tr>
+            <tr>
+                <th>mintemp_c</th>
+                <td>{data.day.mintemp_c}</td>
+            </tr>
+            <tr>
+                <th>mintemp_f</th>
+                <td>{data.day.mintemp_f}</td>
+            </tr>
+            <tr>
+                <th>humidity</th>
+                <td>{data.day.avghumidity}</td>
+            </tr>
+            <tr>
+                <th> Rain? </th>
+                <td> {data.day.daily_will_it_rain}</td>
+            </tr>
+            <tr>
+                <th> Snow?</th>
+                <td>{data.day.daily_will_it_snow}</td>
+            </tr>
+         </table>
 
-       <p>Sunrise {data.astro.sunrise}</p>
-       <p>Sunset {data.astro.sunset}</p>
-       <p>Moonrise {data.astro.moonrise}</p>
-       <p>Moonset {data.astro.moonset}</p>
+<table>
+    <tr>
+        <th>  Sunrise </th>
+        <td>{data.astro.sunrise}</td>
+    </tr>
+    <tr>
+        <th>  Sunset </th>
+        <td>{data.astro.sunset}</td>
+    </tr>
+    <tr>
+        <th>  Moonrise </th>
+        <td>{data.astro.moonrise}</td>
+    </tr>
+    <tr>
+        <th>  Moonset </th>
+        <td>{data.astro.moonset}</td>
+    </tr>
+</table>
+     
+   
 
 
        

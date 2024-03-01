@@ -5,7 +5,7 @@ const WeatherData = (props) => {
   const { currentWeather, currentData, location ,dispForeCast} = useContext(WeatherContext);
 
    return (
-    <div className="container">
+    <div className="container py-4">
         <div className="row">
         
     
