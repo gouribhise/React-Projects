@@ -5,7 +5,7 @@ const Categories=()=>{
     const {categories,filterByCat,filteredData}=useContext(MealContext)
        return(
         <div>
-<Stack direction='row' spacing="25px"  ml="130px" mt="50px">        {categories.map((item)=>{
+<Stack direction='row' spacing="15px"  ml="10px" mt="40px">        {categories.map((item)=>{
             return(
 
                 <Button colorScheme='red' variant='solid'
