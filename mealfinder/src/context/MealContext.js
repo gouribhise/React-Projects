@@ -8,6 +8,7 @@ const MealContext=createContext()
 export const MealProvider=({children})=>{
     const[categories,setCategories]=useState([])
     const[filteredData,setFilteredData]=useState([])
+    const [mealDetail,setMealDetail]=useState([])
     const getCategories = async () => {        
         try {
             const response = await fetch(`${BASE_URL}categories.php`);
@@ -36,8 +37,18 @@ const filterByCat=async(term)=>{
     }
 }
 
+const getMealDetails=async(meal)=>{
+    try{
+        const response=await fetch(`${BASE_URL}lookup.php?i=${meal}`);
+        const data= await response.json();
+        console.log('filter data:',data)
+setMealDetail(data.meals)
+    }catch(error){
+        console.log(error.response)
+    }
+}
 return (
-    <MealContext.Provider value={{categories,filteredData,filterByCat}}>
+    <MealContext.Provider value={{categories,filteredData,filterByCat,getMealDetails,mealDetail}}>
         {children}
     </MealContext.Provider>
 )

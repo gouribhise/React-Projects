@@ -1,5 +1,8 @@
 import React,{useContext} from 'react'
-import { Card, CardHeader, CardBody, Box, Stack,Text, HStack, VStack,Image, Flex,Spacer } from '@chakra-ui/react'
+import { Card,  CardBody, Box, Stack,Text, HStack, VStack,Image, Flex,Spacer } from '@chakra-ui/react'
+import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
+import { Link as ReactRouterLink,Outlet} from 'react-router-dom'
+
 import MealContext from '../context/MealContext'
 
 const RecipeCard=()=>{
@@ -20,7 +23,8 @@ console.log('recipecard:',filteredData)
             <Card>
   <CardBody>
     <Image src={item.strMealThumb} boxSize='150px'       borderRadius='md'/>
-    <Text>{item.strMeal}</Text>
+    <ChakraLink as={ReactRouterLink} to={{pathname:`recipe/${item.idMeal}`,state:{test:'hello'}}} >
+  <Text>{item.strMeal}</Text></ChakraLink>
   </CardBody>
 </Card>
 <Spacer />

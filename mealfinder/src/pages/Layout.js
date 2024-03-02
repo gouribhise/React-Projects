@@ -18,6 +18,7 @@ const Layout = () => {
 <ChakraLink as={ReactRouterLink} to='/'>
   Home
 </ChakraLink>
+ 
         </HStack>
       
 

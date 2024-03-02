@@ -4,6 +4,7 @@ import {ChakraProvider} from '@chakra-ui/react'
 import Home from './pages/Home'
 import Layout from './pages/Layout'
 import NoPage from './pages/NoPage';
+import Recipe from './pages/Recipe';
 function App() {
   return (
     <div className="App">
@@ -12,6 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>}/>
+          <Route path="recipe/:id" element={<Recipe />} />
+
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
