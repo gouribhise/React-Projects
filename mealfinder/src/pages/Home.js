@@ -4,8 +4,7 @@ import RecipeCard from '../components/RecipeCard'
  const Home=()=>{
     return (
         <>
-        <div>Home</div>
-        <Categories/>
+         <Categories/>
        
         <RecipeCard/>
         

@@ -19,8 +19,7 @@ export const MealProvider=({children})=>{
             console.log(error.response);
           }
     }
-console.log('test:',categories)
-    useEffect(()=>{
+     useEffect(()=>{
 getCategories()
     },[])
 
