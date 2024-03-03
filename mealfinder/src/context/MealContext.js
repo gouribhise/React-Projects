@@ -41,7 +41,7 @@ const getMealDetails=async(meal)=>{
         const response=await fetch(`${BASE_URL}lookup.php?i=${meal}`);
         const data= await response.json();
         console.log('filter data:',data)
-setMealDetail(data.meals)
+setMealDetail(data.meals[0])
     }catch(error){
         console.log(error.response)
     }
