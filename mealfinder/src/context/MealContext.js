@@ -36,6 +36,18 @@ const filterByCat=async(term)=>{
     }
 }
 
+//filter by first letter
+const filterByLetter=async(letter)=>{
+    try{
+        const response=await fetch(`${BASE_URL}search.php?f=${letter}`);
+        const data=await response.json();
+        setFilteredData(data.meals)
+        console.log('filter by letter',data.meals)
+    }catch(error){
+        console.log(error.response)
+    }
+}
+
 const getMealDetails=async(meal)=>{
     try{
         const response=await fetch(`${BASE_URL}lookup.php?i=${meal}`);
@@ -47,7 +59,7 @@ setMealDetail(data.meals[0])
     }
 }
 return (
-    <MealContext.Provider value={{categories,filteredData,filterByCat,getMealDetails,mealDetail}}>
+    <MealContext.Provider value={{categories,filteredData,filterByCat,getMealDetails,mealDetail,filterByLetter}}>
         {children}
     </MealContext.Provider>
 )

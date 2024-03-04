@@ -12,11 +12,12 @@ const Layout = () => {
         <ChakraLink as={ReactRouterLink} to='/'>
   Home
 </ChakraLink>
-<ChakraLink as={ReactRouterLink} to='/'>
-  Home
+
+<ChakraLink as={ReactRouterLink} to='/alphabetically'>
+  A-Z
 </ChakraLink>
-<ChakraLink as={ReactRouterLink} to='/'>
-  Home
+<ChakraLink as={ReactRouterLink} to='/random'>
+  Random
 </ChakraLink>
  
         </HStack>

@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import Layout from './pages/Layout'
 import NoPage from './pages/NoPage';
 import Recipe from './pages/Recipe';
+import ATOZ from './pages/ATOZ';
+import RandomRecipe from './pages/RandomRecipe';
 function App() {
   return (
     <div className="App">
@@ -13,7 +15,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>}/>
+          <Route path="/alphabetically" element={<ATOZ/>}/>
           <Route path="recipe/:id" element={<Recipe />} />
+          <Route path="/random" element={<RandomRecipe/>}/>
 
           <Route path="*" element={<NoPage />} />
         </Route>
