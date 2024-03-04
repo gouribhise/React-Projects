@@ -17,6 +17,7 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path="/alphabetically" element={<ATOZ/>}/>
           <Route path="recipe/:id" element={<Recipe />} />
+          <Route path="/alphabetically/recipe/:id" element={<Recipe />} />
           <Route path="/random" element={<RandomRecipe/>}/>
 
           <Route path="*" element={<NoPage />} />
