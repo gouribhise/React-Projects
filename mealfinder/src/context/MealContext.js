@@ -48,6 +48,18 @@ const filterByLetter=async(letter)=>{
     }
 }
 
+//get random recipe
+const getRandom=async()=>{
+    try{
+        const response=await fetch(`${BASE_URL}random.php`);
+        const data=await response.json()
+        setFilteredData(data.meals[0])
+        console.log('randome recipe:',data.meals)
+    }catch(error){
+        console.log(error.response)
+    }
+}
+
 const getMealDetails=async(meal)=>{
     try{
         const response=await fetch(`${BASE_URL}lookup.php?i=${meal}`);
@@ -59,7 +71,7 @@ setMealDetail(data.meals[0])
     }
 }
 return (
-    <MealContext.Provider value={{categories,filteredData,filterByCat,getMealDetails,mealDetail,filterByLetter}}>
+    <MealContext.Provider value={{categories,filteredData,filterByCat,getMealDetails,mealDetail,filterByLetter,getRandom}}>
         {children}
     </MealContext.Provider>
 )
