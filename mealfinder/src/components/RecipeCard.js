@@ -1,5 +1,5 @@
 import React,{useContext,useEffect} from 'react'
-import { Card,  CardBody, Box, Stack,Text, HStack, VStack,Image, Flex,Spacer, filter } from '@chakra-ui/react'
+import { Card,  CardBody, Box, Stack,Text, HStack, VStack,Image, Flex,Spacer, Heading } from '@chakra-ui/react'
 import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
 import { Link as ReactRouterLink,Outlet} from 'react-router-dom'
 
@@ -17,9 +17,12 @@ filterByCat(category)
     // const data = filteredData.filter((element, index) => {
     //   return filteredData.indexOf(element) === index;
     // });
-console.log('recipecard:',filteredData)
-    return (
+
+     
+     return (
         <div>
+          <Heading mt={5}>{category.charAt(0).toUpperCase()+category.slice(1)}</Heading>
+
            <Box
         display="grid"
         gridTemplateColumns="repeat(2,minmax(0,3fr))"
@@ -27,8 +30,7 @@ console.log('recipecard:',filteredData)
         ml="20vw"
        >
 
-        {filteredData?console.log('available'):console.log('notavailable')}
- {filteredData.map((item)=>{
+  {filteredData.map((item)=>{
 
 return(
 

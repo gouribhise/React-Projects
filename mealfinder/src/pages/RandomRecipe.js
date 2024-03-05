@@ -42,7 +42,14 @@ const RandomRecipe=()=>{
              <Box w="50vw" h="50vh">
     
     <Heading size="sm">Instructions</Heading>
-    {randomData.strInstructions}</Box>
+     
+    <ul>
+    {randomData.strInstructions? randomData.strInstructions.split('\r\n').map((line, index) => (
+
+ <li key={index} >{line}</li>
+
+)):null}</ul>
+    </Box>
     </VStack>
     </HStack>
 

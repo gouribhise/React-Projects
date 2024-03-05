@@ -9,8 +9,8 @@ const Categories=()=>{
             return(
 
                 <Button colorScheme='red' variant='solid'
-                
-                onClick={()=>filterByCat(`${item.strCategory}`)}
+                 onClick={()=>{filterByCat(`${item.strCategory}`)}}
+
                 >{item.strCategory}</Button>
 
             )

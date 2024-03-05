@@ -63,12 +63,19 @@ const validIngredients = Object.keys(mealDetail)
  <Text>{mealDetail.strIngredient9?<Text>{mealDetail.strIngredient9} - {mealDetail.strMeasure9}</Text>:null}</Text>
  <Text>{mealDetail.strIngredient10?<Text>{mealDetail.strIngredient10} - {mealDetail.strMeasure10}</Text>:null}</Text>
  <VStack>
-<Box w="50vw" h="50vh">
+<Box w="50vw" h="50vh" > 
     
     <Heading size="sm">Instructions</Heading>
-    {mealDetail.strInstructions}</Box>
+    
+    <ul>
+    {mealDetail.strInstructions? mealDetail.strInstructions.split('\r\n\r\n').map((line, index) => (
+
+ <li key={index} >{line}</li>
+
+)):null}</ul>
+   </Box>
  
- 
+
             
             </VStack>
  </VStack>
