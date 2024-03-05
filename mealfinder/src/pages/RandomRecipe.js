@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import { Badge, Stack,Button, filter, HStack, VStack, Heading,Image,Text, Box } from '@chakra-ui/react'
 
 const RandomRecipe=()=>{
-    const {getRandom,filteredData}=useContext(MealContext)
+    const {getRandom,randomData}=useContext(MealContext)
     useEffect(()=>{
         getRandom()
     },[])
@@ -12,15 +12,15 @@ const RandomRecipe=()=>{
     return(
         <>
         <HStack justifyContent='center'>
-        <Heading>{filteredData.strMeal}</Heading>
+        <Heading>{randomData.strMeal}</Heading>
         </HStack>
 
     <HStack>
     <VStack alignItems='center' >
                 
-                <Image src={filteredData.strMealThumb} boxSize="70%" borderRadius="25px" mt="-50px"/>
-                <Text>Category - {filteredData.strCategory}</Text> <Text>Area - {filteredData.strArea}</Text>
-                <Link to={filteredData.strYoutube}>Watch Video</Link>
+                <Image src={randomData.strMealThumb} boxSize="70%" borderRadius="25px" mt="-50px"/>
+                <Text>Category - {randomData.strCategory}</Text> <Text>Area - {randomData.strArea}</Text>
+                <Link to={randomData.strYoutube}>Watch Video</Link>
                             
                         </VStack>
 
@@ -28,21 +28,21 @@ const RandomRecipe=()=>{
             
             <Heading size="sm" mt="20px">Ingredients</Heading>
 
-            <Text>{filteredData.strIngredient1} - {filteredData.strMeasure1}</Text>
-            <Text>{filteredData.strIngredient2} - {filteredData.strMeasure2}</Text>
-            <Text>{filteredData.strIngredient3} - {filteredData.strMeasure3}</Text>
-            <Text>{filteredData.strIngredient4?<Text>{filteredData.strIngredient4} - {filteredData.strMeasure4}</Text>:null}</Text>
-            <Text>{filteredData.strIngredient5?<Text>{filteredData.strIngredient5} - {filteredData.strMeasure5}</Text>:null}</Text>
-            <Text>{filteredData.strIngredient6?<Text>{filteredData.strIngredient6} - {filteredData.strMeasure6}</Text>:null}</Text>
-            <Text>{filteredData.strIngredient7?<Text>{filteredData.strIngredient7} - {filteredData.strMeasure7}</Text>:null}</Text>
-            <Text>{filteredData.strIngredient8?<Text>{filteredData.strIngredient8} - {filteredData.strMeasure8}</Text>:null}</Text>
-            <Text>{filteredData.strIngredient9?<Text>{filteredData.strIngredient9} - {filteredData.strMeasure9}</Text>:null}</Text>
-            <Text>{filteredData.strIngredient10?<Text>{filteredData.strIngredient10} - {filteredData.strMeasure10}</Text>:null}</Text>
+            <Text>{randomData.strIngredient1} - {randomData.strMeasure1}</Text>
+            <Text>{randomData.strIngredient2} - {randomData.strMeasure2}</Text>
+            <Text>{randomData.strIngredient3} - {randomData.strMeasure3}</Text>
+            <Text>{randomData.strIngredient4?<Text>{randomData.strIngredient4} - {randomData.strMeasure4}</Text>:null}</Text>
+            <Text>{randomData.strIngredient5?<Text>{randomData.strIngredient5} - {randomData.strMeasure5}</Text>:null}</Text>
+            <Text>{randomData.strIngredient6?<Text>{randomData.strIngredient6} - {randomData.strMeasure6}</Text>:null}</Text>
+            <Text>{randomData.strIngredient7?<Text>{randomData.strIngredient7} - {randomData.strMeasure7}</Text>:null}</Text>
+            <Text>{randomData.strIngredient8?<Text>{randomData.strIngredient8} - {randomData.strMeasure8}</Text>:null}</Text>
+            <Text>{randomData.strIngredient9?<Text>{randomData.strIngredient9} - {randomData.strMeasure9}</Text>:null}</Text>
+            <Text>{randomData.strIngredient10?<Text>{randomData.strIngredient10} - {randomData.strMeasure10}</Text>:null}</Text>
             
              <Box w="50vw" h="50vh">
     
     <Heading size="sm">Instructions</Heading>
-    {filteredData.strInstructions}</Box>
+    {randomData.strInstructions}</Box>
     </VStack>
     </HStack>
 

@@ -7,7 +7,9 @@ const MealContext=createContext()
 
 export const MealProvider=({children})=>{
     const[categories,setCategories]=useState([])
+    const[category,setCategory]=useState('dessert')
     const[filteredData,setFilteredData]=useState([])
+    const[randomData,setRandomData]=useState([])
     const [mealDetail,setMealDetail]=useState([])
     const getCategories = async () => {        
         try {
@@ -23,13 +25,14 @@ export const MealProvider=({children})=>{
 getCategories()
     },[])
 
-const filterByCat=async(term)=>{
-    console.log('what is term:',term)
+const filterByCat=async(category)=>{
+    console.log('what is term:',category)
     try{
-        const response=await fetch(`${BASE_URL}filter.php?c=${term}`);
+        const response=await fetch(`${BASE_URL}filter.php?c=${category}`);
         const data= await response.json();
         console.log('filter data:',data)
         setFilteredData(data.meals)
+        setCategory(category)
 
     }catch(error){
         console.log(error.response)
@@ -53,7 +56,7 @@ const getRandom=async()=>{
     try{
         const response=await fetch(`${BASE_URL}random.php`);
         const data=await response.json()
-        setFilteredData(data.meals[0])
+        setRandomData(data.meals[0])
         console.log('randome recipe:',data.meals)
     }catch(error){
         console.log(error.response)
@@ -71,7 +74,7 @@ setMealDetail(data.meals[0])
     }
 }
 return (
-    <MealContext.Provider value={{categories,filteredData,filterByCat,getMealDetails,mealDetail,filterByLetter,getRandom}}>
+    <MealContext.Provider value={{categories,filteredData,filterByCat,getMealDetails,mealDetail,filterByLetter,getRandom,category,randomData}}>
         {children}
     </MealContext.Provider>
 )

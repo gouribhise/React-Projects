@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect} from 'react'
 import { Card,  CardBody, Box, Stack,Text, HStack, VStack,Image, Flex,Spacer, filter } from '@chakra-ui/react'
 import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
 import { Link as ReactRouterLink,Outlet} from 'react-router-dom'
@@ -6,13 +6,17 @@ import { Link as ReactRouterLink,Outlet} from 'react-router-dom'
 import MealContext from '../context/MealContext'
 
 const RecipeCard=()=>{
-    const {filteredData}=useContext(MealContext)
+    const {filteredData,filterByCat,category}=useContext(MealContext)
+     useEffect(()=>{
+filterByCat(category)
+    },[])
     // const data = [...new Set(filteredData)];
     // console.log('recipe card data:',data)
 
-    const data = filteredData.filter((element, index) => {
-      return filteredData.indexOf(element) === index;
-    });
+   
+    // const data = filteredData.filter((element, index) => {
+    //   return filteredData.indexOf(element) === index;
+    // });
 console.log('recipecard:',filteredData)
     return (
         <div>
@@ -22,7 +26,9 @@ console.log('recipecard:',filteredData)
         gridGap={4}
         ml="20vw"
        >
- {data.map((item)=>{
+
+        {filteredData?console.log('available'):console.log('notavailable')}
+ {filteredData.map((item)=>{
 
 return(
 
@@ -37,7 +43,7 @@ return(
   </Card>
   </VStack>
   </HStack>)
- })}   
+ })}
       </Box>
         </div>
     )
