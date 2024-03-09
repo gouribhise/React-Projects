@@ -23,7 +23,8 @@ const validIngredients = Object.keys(mealDetail)
 )
 .map((key) => mealDetail[key]);
 
- console.log('ingredients:',validIngredients)    
+ 
+ 
 
  const measuremnts = Object.keys(mealDetail)
 .filter(
@@ -31,8 +32,7 @@ const validIngredients = Object.keys(mealDetail)
 )
 .map((key) => mealDetail[key]);
 
- console.log('ingredients:',typeof(validIngredients)    )
- console.log('measurement:',measuremnts)
+ console.log('inside recipe page:',mealDetail)
  
     return(
         <>
