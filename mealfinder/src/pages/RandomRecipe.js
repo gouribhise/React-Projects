@@ -2,6 +2,7 @@ import React,{useEffect,useContext} from 'react'
 import MealContext from '../context/MealContext'
 import {Link} from 'react-router-dom'
 import { Badge, Stack,Button, filter, HStack, VStack, Heading,Image,Text, Box } from '@chakra-ui/react'
+import ReactPlayer from 'react-player'
 
 const RandomRecipe=()=>{
     const {getRandom,randomData}=useContext(MealContext)
@@ -20,7 +21,8 @@ const RandomRecipe=()=>{
                 
                 <Image src={randomData.strMealThumb} boxSize="70%" borderRadius="25px" mt="-50px"/>
                 <Text>Category - {randomData.strCategory}</Text> <Text>Area - {randomData.strArea}</Text>
-                <Link to={randomData.strYoutube}>Watch Video</Link>
+                {randomData.strYoutube?<><Heading>Watch Video</Heading>
+<ReactPlayer url={randomData.strYoutube}  controls="true"/></>:null}
                             
                         </VStack>
 

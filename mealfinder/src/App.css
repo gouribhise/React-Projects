@@ -11,6 +11,14 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+
+}
+
+li{
+  list-style-type:none;
+  line-height: 2rem;
+  font-size: 1.3vw;
+  margin-bottom: 2%;
 }
 
 .App-header {

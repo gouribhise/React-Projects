@@ -1,7 +1,7 @@
 import React,{useEffect,useContext} from 'react';
 import MealContext from '../context/MealContext'
 import { Badge, Stack,Button, filter, HStack, VStack, Heading,Image,Text, Box } from '@chakra-ui/react'
-
+import ReactPlayer from 'react-player'
 import {
     BrowserRouter as Router,
     Switch,
@@ -43,10 +43,12 @@ const validIngredients = Object.keys(mealDetail)
             
             <VStack alignItems='center' >
                 
-<Image src={mealDetail.strMealThumb} boxSize="70%" borderRadius="25px" mt="-200px"/>
+<Image src={mealDetail.strMealThumb} boxSize="70%" borderRadius="25px" mt="-50px"/>
 <Text>Category - {mealDetail.strCategory}</Text> <Text>Area - {mealDetail.strArea}</Text>
-<Link to={mealDetail.strYoutube}>Watch Video</Link>
-                
+
+{mealDetail.strYoutube?<><Heading>Watch Video</Heading>
+<ReactPlayer url={mealDetail.strYoutube}  controls="true"/></>:null}
+
             </VStack>
             <VStack alignItems="flex-start" mt="20px" >
             
